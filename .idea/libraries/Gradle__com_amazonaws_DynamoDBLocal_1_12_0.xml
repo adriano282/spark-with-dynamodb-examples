@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazonaws:DynamoDBLocal:1.12.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Could not find com.amazonaws:DynamoDBLocal:1.12.0.&#10;Searched in the following locations:&#10;    https:/repo1.maven.org/maven2/com/amazonaws/DynamoDBLocal/1.12.0/DynamoDBLocal-1.12.0.pom&#10;    https:/repo1.maven.org/maven2/com/amazonaws/DynamoDBLocal/1.12.0/DynamoDBLocal-1.12.0.jar&#10;    https:/s3-sa-east-1.amazonaws.com/dynamodb-local-sao-paulo/com/amazonaws/DynamoDBLocal/1.12.0/DynamoDBLocal-1.12.0.pom&#10;    https:/s3-sa-east-1.amazonaws.com/dynamodb-local-sao-paulo/com/amazonaws/DynamoDBLocal/1.12.0/DynamoDBLocal-1.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/DynamoDBLocal/1.12.0/c3d5ad233742fb18f015f49907804e70c7236376/DynamoDBLocal-1.12.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

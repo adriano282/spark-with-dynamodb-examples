@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/spark-with-dynamo-examples.iml" filepath="$PROJECT_DIR$/.idea/spark-with-dynamo-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_acceptanceTest.iml" filepath="$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_acceptanceTest.iml" group="spark-with-dynamo-examples" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_main.iml" group="spark-with-dynamo-examples" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spark-with-dynamo-examples_test.iml" group="spark-with-dynamo-examples" />
+    </modules>
+  </component>
+</project>

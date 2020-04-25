@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Testing the stock shares peak price by month" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-04-25T05:48:46" hostname="adriano-Inspiron-5570" time="0.181">
+  <properties/>
+  <testcase name="Successfully run the job" classname="Testing the stock shares peak price by month" time="0.181">
+    <failure message="java.lang.AssertionError: The size lists isn't as expected. expected:&lt;2&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: The size lists isn't as expected. expected:&lt;2&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at br.com.adriano.swde.stepdefs.SharesHighestPriceMonthlyStepDefs.assertResult(SharesHighestPriceMonthlyStepDefs.java:80)
+	at br.com.adriano.swde.stepdefs.SharesHighestPriceMonthlyStepDefs.shouldBeSaved(SharesHighestPriceMonthlyStepDefs.java:69)
+	at ✽.should be saved the following result(file:///home/adriano/Development/study/spark/spark-with-dynamo-examples/src/acceptanceTest/resources/feature/SharesPeakPriceByMonth.feature:32)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
