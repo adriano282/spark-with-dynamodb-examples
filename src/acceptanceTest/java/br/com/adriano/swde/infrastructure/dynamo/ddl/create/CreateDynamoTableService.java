@@ -8,7 +8,6 @@ import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 public class CreateDynamoTableService {
 
     private static Logger LOGGER = LogManager.getLogger(CreateDynamoTableService.class);
@@ -19,7 +18,7 @@ public class CreateDynamoTableService {
         this.dynamoDB = dynamoDB;
     }
 
-    public void createAllTables(Class ... classes) {
+    public void createAllTables(Class... classes) {
         LOGGER.info("m=createAllTables, message=Received {} classes to create.");
 
         for (Class aClass : classes) {
@@ -31,7 +30,7 @@ public class CreateDynamoTableService {
 
         CreateTableRequest request = createCreateTableRequest(clazz);
 
-        request.setProvisionedThroughput(new ProvisionedThroughput(1000L,1000L));
+        request.setProvisionedThroughput(new ProvisionedThroughput(1000L, 1000L));
 
         if (existsTable(request.getTableName())) {
             LOGGER.info("m=createTable, message=Table {} already created.", request.getTableName());
@@ -40,7 +39,9 @@ public class CreateDynamoTableService {
 
         CreateTableResult createTableResult = dynamoDB.createTable(request);
 
-        LOGGER.info("m=createTable, message=Table {} successfully created.", createTableResult.getTableDescription().getTableName());
+        LOGGER.info(
+                "m=createTable, message=Table {} successfully created.",
+                createTableResult.getTableDescription().getTableName());
     }
 
     private CreateTableRequest createCreateTableRequest(Class clazz) {

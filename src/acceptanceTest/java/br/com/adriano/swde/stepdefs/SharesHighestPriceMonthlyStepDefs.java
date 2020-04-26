@@ -1,6 +1,5 @@
 package br.com.adriano.swde.stepdefs;
 
-
 import br.com.adriano.swde.Main;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ExchangeStockShareDynamoDBRepository;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ShareHighestPriceMonthDynamoDBRepository;
@@ -19,11 +18,11 @@ import static org.junit.Assert.assertEquals;
 
 public class SharesHighestPriceMonthlyStepDefs {
 
-    private ExchangeStockShareDynamoDBRepository exchangeStockShareDynamoDBRepository
-            = new ExchangeStockShareDynamoDBRepository();
+    private ExchangeStockShareDynamoDBRepository exchangeStockShareDynamoDBRepository =
+            new ExchangeStockShareDynamoDBRepository();
 
-    private ShareHighestPriceMonthDynamoDBRepository shareHighestPriceMonthDynamoDBRepository
-            = new ShareHighestPriceMonthDynamoDBRepository();
+    private ShareHighestPriceMonthDynamoDBRepository shareHighestPriceMonthDynamoDBRepository =
+            new ShareHighestPriceMonthDynamoDBRepository();
 
     @DataTableType
     public StockShare defineStockShare(Map<String, String> entry) {
@@ -36,8 +35,7 @@ public class SharesHighestPriceMonthlyStepDefs {
                 entry.get("stockPriceLow"),
                 entry.get("stockPriceClose"),
                 entry.get("stockVolume"),
-                entry.get("stockPriceAdjClose")
-        );
+                entry.get("stockPriceAdjClose"));
     }
 
     @DataTableType
@@ -45,10 +43,8 @@ public class SharesHighestPriceMonthlyStepDefs {
         return new SharePeakPriceMonth(
                 entry.get("stockShareSymbol"),
                 entry.get("month"),
-                Double.valueOf(entry.get("peakPrice"))
-        );
+                Double.valueOf(entry.get("peakPrice")));
     }
-
 
     @Given("there were registered these shares prices history:")
     public void registeredSharePricesHistory(final List<StockShare> stockShares) throws Exception {
@@ -57,13 +53,13 @@ public class SharesHighestPriceMonthlyStepDefs {
 
     @When("the sharesHighestPriceMonthly job run")
     public void runSharesHighestPriceMonthly() {
-        //Flow.builder().addStep(Steps.SHARE_HIGHEST_PRICE_MONTHLY_STEP.get()).build().run();
+        // Flow.builder().addStep(Steps.SHARE_HIGHEST_PRICE_MONTHLY_STEP.get()).build().run();
         Main.main();
     }
 
     @Then("should be saved the following result")
-    public void shouldBeSaved(
-            final List<SharePeakPriceMonth> expectedSharePeakPriceMonthList) throws Exception {
+    public void shouldBeSaved(final List<SharePeakPriceMonth> expectedSharePeakPriceMonthList)
+            throws Exception {
         List<SharePeakPriceMonth> result = shareHighestPriceMonthDynamoDBRepository.findAll();
 
         assertResult(
@@ -78,7 +74,9 @@ public class SharesHighestPriceMonthlyStepDefs {
             List<SharePeakPriceMonth> result) {
 
         assertEquals(
-                "The size lists isn't as expected.", expectedSharePeakPriceMonthList.size(), result.size());
+                "The size lists isn't as expected.",
+                expectedSharePeakPriceMonthList.size(),
+                result.size());
 
         sortLists(expectedSharePeakPriceMonthList, result);
 

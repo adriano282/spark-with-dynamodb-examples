@@ -6,7 +6,6 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 public class DynamoDBInstance {
 
     private static Logger LOGGER = LogManager.getLogger(DynamoDBInstance.class);
@@ -25,11 +24,12 @@ public class DynamoDBInstance {
 
         if (dynamoDBEmbedded == null) {
 
-
-            dynamoDBEmbedded = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-                    new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
-                    .build();
-
+            dynamoDBEmbedded =
+                    AmazonDynamoDBClientBuilder.standard()
+                            .withEndpointConfiguration(
+                                    new AwsClientBuilder.EndpointConfiguration(
+                                            "http://localhost:8000", "us-west-2"))
+                            .build();
 
             LOGGER.info("m=getOrCreate, message=Created new DynamoDB instance.");
         }

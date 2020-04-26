@@ -13,7 +13,8 @@ import java.util.List;
 
 public class ExchangeStockShareDynamoDBRepository {
 
-    private static final Logger LOGGER = LogManager.getLogger(ExchangeStockShareDynamoDBRepository.class);
+    private static final Logger LOGGER =
+            LogManager.getLogger(ExchangeStockShareDynamoDBRepository.class);
 
     private final String TABLE_NAME = getTableName();
 
@@ -23,8 +24,9 @@ public class ExchangeStockShareDynamoDBRepository {
 
         Table table = dynamoDB.getTable(TABLE_NAME);
 
-        LOGGER.info("m=saveAll m=Going to save {} stockShares.",
-                stockShares == null ? 0: stockShares.size());
+        LOGGER.info(
+                "m=saveAll m=Going to save {} stockShares.",
+                stockShares == null ? 0 : stockShares.size());
 
         for (StockShare ssi : stockShares) {
             Item stockShareItem = new Item();
@@ -45,7 +47,6 @@ public class ExchangeStockShareDynamoDBRepository {
             LOGGER.info("m=saveAll, m=Saved record: {}", stockShareItem);
         }
     }
-
 
     private static String getTableName() {
         return StockShare.class.getAnnotation(DynamoDBTable.class).tableName();

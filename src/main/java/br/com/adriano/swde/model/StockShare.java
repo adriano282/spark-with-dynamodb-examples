@@ -7,7 +7,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName = "StockShare")
 public class StockShare {
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String exchange;
 
     @DynamoDBHashKey(attributeName = "stockSymbol")
@@ -16,25 +16,34 @@ public class StockShare {
     @DynamoDBRangeKey(attributeName = "date")
     public String date;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockPriceOpen;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockPriceHigh;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockPriceLow;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockPriceClose;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockVolume;
 
-    //@DynamoDBAttribute
+    // @DynamoDBAttribute
     public String stockPriceAdjClose;
 
-    public StockShare(String exchange, String stockSymbol, String date, String stockPriceOpen, String stockPriceHigh, String stockPriceLow, String stockPriceClose, String stockVolume, String stockPriceAdjClose) {
+    public StockShare(
+            String exchange,
+            String stockSymbol,
+            String date,
+            String stockPriceOpen,
+            String stockPriceHigh,
+            String stockPriceLow,
+            String stockPriceClose,
+            String stockVolume,
+            String stockPriceAdjClose) {
         this.exchange = exchange;
         this.stockSymbol = stockSymbol;
         this.date = date;

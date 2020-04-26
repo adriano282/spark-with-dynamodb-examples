@@ -10,10 +10,7 @@ public class SharePeakPriceMonth implements Comparable<SharePeakPriceMonth> {
     @DynamoDBHashKey(attributeName = "stockShareSymbol")
     private String stockShareSymbol;
 
-    public SharePeakPriceMonth(
-            String stockShareSymbol,
-            String month,
-            double peakPrice) {
+    public SharePeakPriceMonth(String stockShareSymbol, String month, double peakPrice) {
         this.stockShareSymbol = stockShareSymbol;
         this.month = month;
         this.peakPrice = peakPrice;
@@ -50,7 +47,13 @@ public class SharePeakPriceMonth implements Comparable<SharePeakPriceMonth> {
 
     @Override
     public int compareTo(SharePeakPriceMonth o) {
-        return this.getStockShareSymbol().compareTo(o.getStockShareSymbol());
+        return this.identity().compareTo(o.identity());
+    }
+
+    private String identity() {
+        return this.getStockShareSymbol()
+                .concat(this.getMonth())
+                .concat(String.valueOf(this.getPeakPrice()));
     }
 
     @Override
@@ -61,8 +64,9 @@ public class SharePeakPriceMonth implements Comparable<SharePeakPriceMonth> {
         SharePeakPriceMonth that = (SharePeakPriceMonth) o;
 
         if (Double.compare(that.getPeakPrice(), getPeakPrice()) != 0) return false;
-        if (getStockShareSymbol() != null ? !getStockShareSymbol().equals(that.getStockShareSymbol()) : that.getStockShareSymbol() != null)
-            return false;
+        if (getStockShareSymbol() != null
+                ? !getStockShareSymbol().equals(that.getStockShareSymbol())
+                : that.getStockShareSymbol() != null) return false;
         return getMonth() != null ? getMonth().equals(that.getMonth()) : that.getMonth() == null;
     }
 

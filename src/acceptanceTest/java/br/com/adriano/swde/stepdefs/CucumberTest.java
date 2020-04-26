@@ -30,9 +30,9 @@ public class CucumberTest {
 
         System.setProperty("sqlite4java.library.path", "src/acceptanceTest/resources/libs/");
 
-        server = ServerRunner.createServerFromCommandLineArgs(
-                new String[] {"-inMemory", "-port", "8000", "-sharedDb", "true"}
-        );
+        server =
+                ServerRunner.createServerFromCommandLineArgs(
+                        new String[] {"-inMemory", "-port", "8000", "-sharedDb", "true"});
 
         server.start();
 
