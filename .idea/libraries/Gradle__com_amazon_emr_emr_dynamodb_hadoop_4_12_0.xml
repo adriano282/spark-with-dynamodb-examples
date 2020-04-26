@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazon.emr:emr-dynamodb-hadoop:4.12.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazon.emr/emr-dynamodb-hadoop/4.12.0/68ad2618ead28b4584b8b820dbc3ae5295ffdcfa/emr-dynamodb-hadoop-4.12.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazon.emr/emr-dynamodb-hadoop/4.12.0/a9e8ce01ecb747451325bd1afd33bd4421ea7948/emr-dynamodb-hadoop-4.12.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

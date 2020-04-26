@@ -1,8 +1,7 @@
 package br.com.adriano.swde.stepdefs;
 
 
-import br.com.adriano.swde.Flow;
-import br.com.adriano.swde.Steps;
+import br.com.adriano.swde.Main;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ExchangeStockShareDynamoDBRepository;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ShareHighestPriceMonthDynamoDBRepository;
 import br.com.adriano.swde.model.SharePeakPriceMonth;
@@ -44,7 +43,7 @@ public class SharesHighestPriceMonthlyStepDefs {
     @DataTableType
     public SharePeakPriceMonth defineSharePeakPriceMonth(Map<String, String> entry) {
         return new SharePeakPriceMonth(
-                entry.get("stockSymbol"),
+                entry.get("stockShareSymbol"),
                 entry.get("month"),
                 Double.valueOf(entry.get("peakPrice"))
         );
@@ -52,18 +51,19 @@ public class SharesHighestPriceMonthlyStepDefs {
 
 
     @Given("there were registered these shares prices history:")
-    public void registeredSharePricesHistory(final List<StockShare> stockShares) {
+    public void registeredSharePricesHistory(final List<StockShare> stockShares) throws Exception {
         exchangeStockShareDynamoDBRepository.saveAll(stockShares);
     }
 
     @When("the sharesHighestPriceMonthly job run")
     public void runSharesHighestPriceMonthly() {
-        Flow.builder().addStep(Steps.SHARE_HIGHEST_PRICE_MONTHLY_STEP.get()).build().run();
+        //Flow.builder().addStep(Steps.SHARE_HIGHEST_PRICE_MONTHLY_STEP.get()).build().run();
+        Main.main();
     }
 
     @Then("should be saved the following result")
     public void shouldBeSaved(
-            final List<SharePeakPriceMonth> expectedSharePeakPriceMonthList) {
+            final List<SharePeakPriceMonth> expectedSharePeakPriceMonthList) throws Exception {
         List<SharePeakPriceMonth> result = shareHighestPriceMonthDynamoDBRepository.findAll();
 
         assertResult(

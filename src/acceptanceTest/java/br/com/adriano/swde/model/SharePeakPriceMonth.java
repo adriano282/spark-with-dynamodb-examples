@@ -50,7 +50,13 @@ public class SharePeakPriceMonth implements Comparable<SharePeakPriceMonth> {
 
     @Override
     public int compareTo(SharePeakPriceMonth o) {
-        return this.getStockShareSymbol().compareTo(o.getStockShareSymbol());
+        return this.identity().compareTo(o.identity());
+    }
+
+    private String identity() {
+        return this.getStockShareSymbol()
+                .concat(this.getMonth())
+                .concat(String.valueOf(this.getPeakPrice()));
     }
 
     @Override

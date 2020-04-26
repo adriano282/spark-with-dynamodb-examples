@@ -2,7 +2,6 @@ package br.com.adriano.swde.infrastructure.dynamo.repository;
 
 import br.com.adriano.swde.infrastructure.dynamo.DynamoDBInstance;
 import br.com.adriano.swde.model.StockShare;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
@@ -18,10 +17,9 @@ public class ExchangeStockShareDynamoDBRepository {
 
     private final String TABLE_NAME = getTableName();
 
-    public void saveAll(List<StockShare> stockShares) {
-        AmazonDynamoDB client = DynamoDBInstance.instance().getOrCreate();
+    public void saveAll(List<StockShare> stockShares) throws Exception {
 
-        DynamoDB dynamoDB = new DynamoDB(client);
+        DynamoDB dynamoDB = new DynamoDB(DynamoDBInstance.instance().getOrCreate());
 
         Table table = dynamoDB.getTable(TABLE_NAME);
 
