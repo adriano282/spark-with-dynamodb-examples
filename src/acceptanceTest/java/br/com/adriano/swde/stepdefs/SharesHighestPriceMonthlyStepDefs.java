@@ -1,5 +1,7 @@
 package br.com.adriano.swde.stepdefs;
 
+import static org.junit.Assert.assertEquals;
+
 import br.com.adriano.swde.Main;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ExchangeStockShareDynamoDBRepository;
 import br.com.adriano.swde.infrastructure.dynamo.repository.ShareHighestPriceMonthDynamoDBRepository;
@@ -9,12 +11,9 @@ import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
 
 public class SharesHighestPriceMonthlyStepDefs {
 

@@ -5,6 +5,7 @@ import br.com.adriano.swde.model.StockShare;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import java.util.HashMap;
 import org.apache.hadoop.dynamodb.DynamoDBConstants;
 import org.apache.hadoop.dynamodb.DynamoDBItemWritable;
 import org.apache.hadoop.dynamodb.read.DynamoDBInputFormat;
@@ -18,16 +19,12 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import scala.Tuple2;
 
-import java.util.HashMap;
-
 public class Main {
 
     public static void main(String... args) {
 
         SparkSession sparkSession =
-                SparkSession.builder()
-                        .master("local[1]")
-                        .appName("job").getOrCreate();
+                SparkSession.builder().master("local[1]").appName("job").getOrCreate();
 
         JobConf jobConf = new JobConf(sparkSession.sparkContext().hadoopConfiguration());
 
@@ -42,10 +39,16 @@ public class Main {
         jobConf.set("dynamodb.input.tableName", dynamoTableName);
         jobConf.set("dynamodb.endpoint", endpoint);
         jobConf.set("dynamodb.regionid", region);
-        jobConf.set(DynamoDBConstants.DYNAMODB_ACCESS_KEY_CONF,
-                DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSAccessKeyId());
-        jobConf.set(DynamoDBConstants.DYNAMODB_SECRET_KEY_CONF,
-                DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSSecretKey());
+        jobConf.set(
+                DynamoDBConstants.DYNAMODB_ACCESS_KEY_CONF,
+                DefaultAWSCredentialsProviderChain.getInstance()
+                        .getCredentials()
+                        .getAWSAccessKeyId());
+        jobConf.set(
+                DynamoDBConstants.DYNAMODB_SECRET_KEY_CONF,
+                DefaultAWSCredentialsProviderChain.getInstance()
+                        .getCredentials()
+                        .getAWSSecretKey());
         jobConf.set("dynamodb.servicename", "dynamodb");
         jobConf.set("dynamodb.throughput.write", "1");
         jobConf.set("dynamodb.throughput.read", "1");
