@@ -42,8 +42,10 @@ public class Main {
         jobConf.set("dynamodb.input.tableName", dynamoTableName);
         jobConf.set("dynamodb.endpoint", endpoint);
         jobConf.set("dynamodb.regionid", region);
-        jobConf.set(DynamoDBConstants.DYNAMODB_ACCESS_KEY_CONF, DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSAccessKeyId());
-        jobConf.set(DynamoDBConstants.DYNAMODB_SECRET_KEY_CONF, DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSSecretKey());
+        jobConf.set(DynamoDBConstants.DYNAMODB_ACCESS_KEY_CONF,
+                DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSAccessKeyId());
+        jobConf.set(DynamoDBConstants.DYNAMODB_SECRET_KEY_CONF,
+                DefaultAWSCredentialsProviderChain.getInstance().getCredentials().getAWSSecretKey());
         jobConf.set("dynamodb.servicename", "dynamodb");
         jobConf.set("dynamodb.throughput.write", "1");
         jobConf.set("dynamodb.throughput.read", "1");
