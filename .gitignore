@@ -21,6 +21,8 @@
 
 .gradle/*
 
+.idea/*
+
 build/*
 out/*
 
