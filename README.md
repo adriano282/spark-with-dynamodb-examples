@@ -1,3 +1,5 @@
 # spark-with-dynamodb-examples
 
-In development ...
+Simple code example demonstrating the connection between spark and dynamoDB. 
+
+Demonstrates how to code the acceptance tests using spark and dynamoDB.
